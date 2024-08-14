@@ -1,12 +1,12 @@
 import unittest
-from data import DANE
+from locators import DANE
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-class StartRegistrationPage (unittest.TestCase):
+from base_test import BaseTest
+class StartRegistrationPageTes(BaseTest):
     def setUp(self):
-        self.driver = webdriver.Chrome()
-    def test_RegistrationPage(self):
-        self.driver.get(DANE.RegistrationPageURL)
+        super().setUp()
+    def test_RegistrationPageTest_ID_002(self):
 
         logo_rejestracja = self.driver.find_element(By.XPATH, '//*[@id="register"]/h1')
         if logo_rejestracja.is_displayed():

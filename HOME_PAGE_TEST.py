@@ -2,6 +2,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+#TEST STRONY STARTOWEJ ID:001
 
 #INICJALIZACJA PRZEGLDARKI
 driver = webdriver.Chrome()
