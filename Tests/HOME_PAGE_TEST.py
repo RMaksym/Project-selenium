@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 
 #INICJALIZACJA PRZEGLDARKI
 driver = webdriver.Chrome()
-driver.get("https://www.notino.pl/")
+driver.get("https://www.notino.co.uk/")
 
 #MAKSYMALIZACJA OKNA PRZEGLDARKI
 driver.maximize_window()
@@ -17,9 +17,9 @@ driver.implicitly_wait(5)
 #SPRAWDZENIE CZY LOGO STRONY JEST WIDOCZNE
 logo = driver.find_element(By.XPATH, '//*[@id="pageHeader"]/div[2]/div[2]')
 if logo.is_displayed():
-    print("PASS: strona zaldowana pomyslnie")
+    print("PASS: Website loaded successfully")
 else:
-    print("FAILED: brak widocznego logo")
+    print("FAILED: Error")
 
 #ZAMKNIECIE PRZEGLADARKI
 driver.quit()
