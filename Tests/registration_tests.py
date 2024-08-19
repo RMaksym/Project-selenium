@@ -1,7 +1,7 @@
 from Base_Tests.base_test_registration import BaseTestRegistration
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from time import sleep
+
 
 class RegistrationTests(BaseTestRegistration):
     def setUp(self):
