@@ -21,7 +21,7 @@ class BuyingTests(BaseTestBuying):
             print("Error: Confirmation of receivables required")
 
         self.burberry_hero_click()
-        self. fragnance_buy()
+        self.fragnance_buy()
         self.go_to_shopping_basket()
         try:
             self.wait.until(EC.visibility_of_element_located((By.XPATH, "//*[@id='app']/div/div[1]/div/div[1]/div")))
