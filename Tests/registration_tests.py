@@ -1,7 +1,7 @@
 from Base_Tests.base_test_registration import BaseTestRegistration
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-
+from time import sleep
 
 class RegistrationTests(BaseTestRegistration):
     def setUp(self):
@@ -32,10 +32,11 @@ class RegistrationTests(BaseTestRegistration):
         self.input_password(self.fake.password(12))
         self.sign_up()
 
-        non_email_mess = self.driver.find_element(By.XPATH, "//*[@id='register-form']/fieldset/p[1]/span/text()")
-        self.wait.until(EC.visibility_of(non_email_mess))
-        if non_email_mess.is_displayed():
+        self.wait.until(EC.presence_of_element_located((By.XPATH, "//*[@id='register-form']/fieldset/p[1]/span")))
+        non_email_mess = self.driver.find_element(By.XPATH, "//*[@id='register-form']/fieldset/p[1]/span")
+        if non_email_mess.is_enabled():
                 print("Account has NOT been created: Email is required")
+
 
 
     def test_Registration_invalid_email_ID_005(self):
@@ -43,9 +44,9 @@ class RegistrationTests(BaseTestRegistration):
         self.input_password("Tester0597")
         self.sign_up()
 
+        self.wait.until(EC.presence_of_element_located((By.XPATH, "//*[@id='register-form']/fieldset/p[1]/span")))
         invalid_email_mess = self.driver.find_element(By.XPATH, "//*[@id='register-form']/fieldset/p[1]/span")
-        self.wait.until(EC.visibility_of(invalid_email_mess))
-        if invalid_email_mess.is_displayed():
+        if invalid_email_mess.is_enabled():
                 print("The Email field does not contain a valid email address.")
 
 
